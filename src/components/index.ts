@@ -6,3 +6,5 @@ export { default as UserAccountNav } from "./UserAccountNav";
 export { default as UserAvatar } from "./UserAvatar";
 export { default as CloseModal } from "./CloseModal";
 export { default as Providers } from "./Providers";
+export { default as MiniCreatePost } from "./MiniCreatePost";
+export { default as SubscribeLeaveToggle } from "./SubscribeLeaveToggle";
