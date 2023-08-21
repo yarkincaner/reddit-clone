@@ -12,8 +12,8 @@ datasource db {
 }
 
 model Account {
-  id                String  @id @default(cuid()) @map("_id") @db.ObjectId
-  userId            String  @db.ObjectId
+  id                String  @id @default(cuid()) @map("_id")
+  userId            String
   type              String
   provider          String
   providerAccountId String
@@ -31,15 +31,15 @@ model Account {
 }
 
 model Session {
-  id           String   @id @default(cuid()) @map("_id") @db.ObjectId
+  id           String   @id @default(cuid()) @map("_id")
   sessionToken String   @unique
-  userId       String   @db.ObjectId
+  userId       String
   expires      DateTime
   user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
 }
 
 model User {
-  id                String         @id @default(cuid()) @map("_id") @db.ObjectId
+  id                String         @id @default(cuid()) @map("_id")
   name              String?
   email             String?        @unique
   emailVerified     DateTime?
@@ -58,12 +58,12 @@ model User {
 }
 
 model Subreddit {
-  id          String         @id @default(cuid()) @map("_id") @db.ObjectId
+  id          String         @id @default(cuid()) @map("_id")
   name        String
   createdAt   DateTime       @default(now())
   updatedAt   DateTime       @updatedAt
   posts       Post[]
-  creatorId   String?        @db.ObjectId
+  creatorId   String?
   creator     User?          @relation("CreatedBy", fields: [creatorId], references: [id])
   subscribers Subscription[]
   userId      String?        @db.ObjectId
@@ -72,40 +72,40 @@ model Subreddit {
 }
 
 model Subscription {
-  id          String    @id @default(cuid()) @map("_id") @db.ObjectId
+  id          String    @id @default(cuid()) @map("_id")
   user        User      @relation(fields: [userId], references: [id])
-  userId      String    @db.ObjectId
+  userId      String
   subreddit   Subreddit @relation(fields: [subredditId], references: [id])
-  subredditId String    @db.ObjectId
+  subredditId String
 }
 
 model Post {
-  id          String     @id @default(cuid()) @map("_id") @db.ObjectId
-  title       String     @db.ObjectId
+  id          String     @id @default(cuid()) @map("_id")
+  title       String
   content     Json?
   createdAt   DateTime   @default(now())
   updatedAt   DateTime   @updatedAt
   subreddit   Subreddit? @relation(fields: [subredditId], references: [id])
-  subredditId String?    @db.ObjectId
+  subredditId String?
   author      User       @relation(fields: [authorId], references: [id])
-  authorId    String     @db.ObjectId
+  authorId    String
   comments    Comment[]
   votes       Vote[]
 }
 
 model Comment {
-  id        String        @id @default(cuid()) @map("_id") @db.ObjectId
+  id        String        @id @default(cuid()) @map("_id")
   text      String
   createdAt DateTime      @default(now())
   author    User          @relation(fields: [authorId], references: [id])
-  authorId  String        @db.ObjectId
+  authorId  String
   post      Post          @relation(fields: [postId], references: [id])
-  postId    String        @db.ObjectId
-  replyToId String?       @db.ObjectId
+  postId    String
+  replyToId String?
   replyTo   Comment?      @relation("ReplyTo", fields: [replyToId], references: [id], onDelete: NoAction, onUpdate: NoAction)
   replies   Comment[]     @relation("ReplyTo")
   votes     CommentVote[]
-  commentId String?       @db.ObjectId
+  commentId String?
 }
 
 enum VoteType {
@@ -114,19 +114,19 @@ enum VoteType {
 }
 
 model Vote {
-  id     String   @id @default(cuid()) @map("_id") @db.ObjectId
+  id     String   @id @default(cuid()) @map("_id")
   user   User     @relation(fields: [userId], references: [id])
-  userId String   @db.ObjectId
+  userId String
   post   Post     @relation(fields: [postId], references: [id])
-  postId String   @db.ObjectId
+  postId String
   type   VoteType
 }
 
 model CommentVote {
-  id        String   @id @default(cuid()) @map("_id") @db.ObjectId
+  id        String   @id @default(cuid()) @map("_id")
   user      User     @relation(fields: [userId], references: [id])
-  userId    String   @db.ObjectId
+  userId    String
   comment   Comment  @relation(fields: [commentId], references: [id])
-  commentId String   @db.ObjectId
+  commentId String
   type      VoteType
 }
