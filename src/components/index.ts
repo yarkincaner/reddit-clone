@@ -8,3 +8,4 @@ export { default as CloseModal } from "./CloseModal";
 export { default as Providers } from "./Providers";
 export { default as MiniCreatePost } from "./MiniCreatePost";
 export { default as SubscribeLeaveToggle } from "./SubscribeLeaveToggle";
+export { default as Editor } from "./Editor";

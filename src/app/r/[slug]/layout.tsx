@@ -4,6 +4,8 @@ import { notFound } from "next/navigation"
 import { FC, ReactNode } from "react"
 import { format } from "date-fns"
 import { SubscribeLeaveToggle } from "@/components"
+import Link from "next/link"
+import { buttonVariants } from "@/components/ui"
 
 interface LayoutProps {
 	children: ReactNode
@@ -98,6 +100,16 @@ const Layout = async ({ children, params: { slug } }: LayoutProps) => {
 									isSubscribed={isSubscribed}
 								/>
 							) : null}
+
+							<Link
+								href={`r/${slug}/submit`}
+								className={buttonVariants({
+									variant: "outline",
+									className: "w-full mb-6",
+								})}
+							>
+								Create Post
+							</Link>
 						</dl>
 					</div>
 				</div>
