@@ -80,14 +80,14 @@ model Subscription {
 }
 
 model Post {
-  id          String     @id @default(cuid()) @map("_id")
+  id          String    @id @default(cuid()) @map("_id")
   title       String
   content     Json?
-  createdAt   DateTime   @default(now())
-  updatedAt   DateTime   @updatedAt
-  subreddit   Subreddit? @relation(fields: [subredditId], references: [id])
-  subredditId String?
-  author      User       @relation(fields: [authorId], references: [id])
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+  subreddit   Subreddit @relation(fields: [subredditId], references: [id])
+  subredditId String
+  author      User      @relation(fields: [authorId], references: [id])
   authorId    String
   comments    Comment[]
   votes       Vote[]

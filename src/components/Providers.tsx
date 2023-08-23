@@ -1,5 +1,6 @@
 "use client"
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query"
+import { SessionProvider } from "next-auth/react"
 import { ReactNode } from "react"
 
 type Props = {
@@ -11,7 +12,7 @@ const Providers = (props: Props) => {
 
 	return (
 		<QueryClientProvider client={queryClient}>
-			{props.children}
+			<SessionProvider>{props.children}</SessionProvider>
 		</QueryClientProvider>
 	)
 }
