@@ -13,7 +13,7 @@ const SignUp = () => {
 					User Agreement and Privacy Policiy.
 				</p>
 
-				{/* SIGN IN FORM */}
+				{/* SIGN UP FORM */}
 				<UserAuthForm />
 
 				<p className="px-8 text-center text-sm text-zinc-700">

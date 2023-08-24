@@ -1,7 +1,7 @@
 import { getAuthSession } from "@/lib/auth"
 import { db } from "@/lib/db"
 import { notFound } from "next/navigation"
-import { FC, ReactNode } from "react"
+import { ReactNode } from "react"
 import { format } from "date-fns"
 import { SubscribeLeaveToggle } from "@/components"
 import Link from "next/link"
