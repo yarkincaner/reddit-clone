@@ -520,7 +520,7 @@
 
 "@radix-ui/react-label@^2.0.2":
   version "2.0.2"
-  resolved "https://registry.npmjs.org/@radix-ui/react-label/-/react-label-2.0.2.tgz"
+  resolved "https://registry.yarnpkg.com/@radix-ui/react-label/-/react-label-2.0.2.tgz#9c72f1d334aac996fdc27b48a8bdddd82108fb6d"
   integrity sha512-N5ehvlM7qoTLx7nWPodsPYPgMzA5WM8zZChQg8nyFJKnDO5WHdba1vv5/H6IO5LtJMfD2Q3wh1qHFGNtK0w3bQ==
   dependencies:
     "@babel/runtime" "^7.13.10"
