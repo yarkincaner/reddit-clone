@@ -3,6 +3,7 @@ import Icons from "./Icons"
 import { buttonVariants } from "./ui"
 import { getAuthSession } from "@/lib/auth"
 import UserAccountNav from "./UserAccountNav"
+import Searchbar from "./Searchbar"
 
 type Props = {}
 
@@ -19,7 +20,8 @@ const Navbar = async (props: Props) => {
 						Breadit
 					</p>
 				</Link>
-				{/* SEARCHBAR */}
+
+				<Searchbar />
 
 				{session?.user ? (
 					<UserAccountNav user={session.user} />
