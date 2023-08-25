@@ -13,8 +13,8 @@ const CommentsSection = async ({ postId }: CommentsSectionProps) => {
 	const comments = await db.comment.findMany({
 		where: {
 			postId,
-			// TODO: "replyToId: null" prevents gettin comments
-			// replyToId: null,
+			// "replyToId: null" prevents gettin comments. Instead, i used "replyToId: undefined".
+			replyToId: undefined,
 		},
 		include: {
 			author: true,
