@@ -32,11 +32,13 @@ const Post: FC<PostProps> = ({
 	return (
 		<div className="rounded-md bg-white shadow">
 			<div className="px-6 py-4 flex justify-between">
-				<PostVoteClient
-					initialVotesAmount={votesAmount}
-					postId={post.id}
-					initialVote={currentVote?.type}
-				/>
+				<div className="hidden md:block">
+					<PostVoteClient
+						initialVotesAmount={votesAmount}
+						postId={post.id}
+						initialVote={currentVote?.type}
+					/>
+				</div>
 
 				<div className="w-0 flex-1">
 					<div className="max-h-40 mt-1 text-xs text-gray-500">
@@ -74,7 +76,14 @@ const Post: FC<PostProps> = ({
 				</div>
 			</div>
 
-			<div className="bg-gray-50 z-20 text-sm p-4 sm:px-6">
+			<div className="flex justify-between bg-gray-50 z-20 text-sm p-4 sm:px-6">
+				<div className="block md:hidden">
+					<PostVoteClient
+						initialVotesAmount={votesAmount}
+						postId={post.id}
+						initialVote={currentVote?.type}
+					/>
+				</div>
 				<a
 					href={`/r/${subredditName}/post/${post.id}`}
 					className="w-fit flex items-center gap-2"
