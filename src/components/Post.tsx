@@ -52,7 +52,7 @@ const Post: FC<PostProps> = ({
 								<span className="px-1">•</span>
 							</>
 						) : null}
-						<span>Posted by u/{post.author.name}</span>{" "}
+						<span>Posted by u/{post.author.username}</span>{" "}
 						{formatTimeToNow(new Date(post.createdAt))}
 					</div>
 
