@@ -12,7 +12,7 @@ import { useCustomToast } from "@/hooks/use-custom-toast"
 
 type Props = {}
 
-const page = (props: Props) => {
+const Page = (props: Props) => {
 	const [input, setInput] = useState<string>()
 	const router = useRouter()
 	const { loginToast } = useCustomToast()
@@ -87,7 +87,7 @@ const page = (props: Props) => {
 				</div>
 
 				<div className="flex justify-end gap-4">
-					<Button variant="subtle" onClick={() => router.back}>
+					<Button variant="subtle" onClick={() => router.back()}>
 						Cancel
 					</Button>
 					<Button
@@ -103,4 +103,4 @@ const page = (props: Props) => {
 	)
 }
 
-export default page
+export default Page
