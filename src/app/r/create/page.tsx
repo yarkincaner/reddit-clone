@@ -13,7 +13,7 @@ import { useCustomToast } from "@/hooks/use-custom-toast"
 type Props = {}
 
 const Page = (props: Props) => {
-	const [input, setInput] = useState<string>()
+	const [input, setInput] = useState<string>("")
 	const router = useRouter()
 	const { loginToast } = useCustomToast()
 
