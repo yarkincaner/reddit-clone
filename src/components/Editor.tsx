@@ -1,7 +1,7 @@
 'use client'
 
 import { toast } from '@/hooks/use-toast'
-import { uploadFiles } from '@/lib/uploadthing'
+import { resizeImage, uploadFiles } from '@/lib/uploadthing'
 import { PostCreationRequest, PostValidator } from '@/lib/validators/post'
 import type EditorJS from '@editorjs/editorjs'
 import { zodResolver } from '@hookform/resolvers/zod'
@@ -11,7 +11,6 @@ import { usePathname, useRouter } from 'next/navigation'
 import { FC, useCallback, useEffect, useRef, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import TextareaAutosize from 'react-textarea-autosize'
-import { genUploader } from 'uploadthing/client'
 
 interface EditorProps {
   subredditId: string
@@ -72,8 +71,14 @@ const Editor: FC<EditorProps> = ({ subredditId }) => {
             config: {
               uploader: {
                 async uploadByFile(file: File) {
+                  const reducedImage = await resizeImage(file)
+                  if (typeof reducedImage === 'undefined') {
+                    console.error('Can not resize image', reducedImage)
+                    return
+                  }
+
                   const [res] = await uploadFiles('imageUploader', {
-                    files: [file]
+                    files: [reducedImage]
                   })
 
                   return {
