@@ -36,10 +36,11 @@
     "@types/node": "20.2.5",
     "@types/react": "18.2.7",
     "@types/react-dom": "18.2.4",
-    "@uploadthing/react": "^4.0.0",
+    "@uploadthing/react": "^7.0.3",
     "@upstash/redis": "^1.21.0",
     "autoprefixer": "10.4.14",
     "axios": "^1.4.0",
+    "browser-image-compression": "^2.0.2",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.0.0",
     "cmdk": "^0.2.0",
@@ -66,11 +67,13 @@
     "tailwindcss": "3.3.2",
     "tailwindcss-animate": "^1.0.6",
     "typescript": "5.0.4",
-    "uploadthing": "^4.0.0",
+    "uploadthing": "^7.1.0",
     "zod": "^3.21.4"
   },
   "devDependencies": {
     "@types/editorjs__header": "^2.6.0",
-    "@types/lodash.debounce": "^4.0.7"
+    "@types/lodash.debounce": "^4.0.7",
+    "prettier": "^3.3.3",
+    "prettier-plugin-tailwindcss": "^0.6.8"
   }
 }
